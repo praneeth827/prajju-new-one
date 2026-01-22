@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic & Scholarship Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Authentication Container -->
+    <div id="auth-container" class="auth-container">
+        <!-- Login Page -->
+        <div id="login-page" class="auth-page active">
+            <div class="auth-card">
+                <h1 class="auth-title">Student Academic & Scholarship Advisor</h1>
+                <h2 class="auth-subtitle">Login</h2>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email">Email ID</label>
+                        <input type="email" id="login-email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p class="auth-link">
+                    Don't have an account? <a href="#" id="show-register">Register</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Registration Page -->
+        <div id="register-page" class="auth-page">
+            <div class="auth-card">
+                <h1 class="auth-title">Student Academic & Scholarship Advisor</h1>
+                <h2 class="auth-subtitle">Register</h2>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name">Name</label>
+                        <input type="text" id="register-name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email ID</label>
+                        <input type="email" id="register-email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone">Phone Number</label>
+                        <input type="tel" id="register-phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required placeholder="Create a password">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" required placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p class="auth-link">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard-container" class="dashboard-container hidden">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <h1 class="dashboard-title">Student Academic & Scholarship Advisor</h1>
+            <div class="user-greeting">
+                <span id="user-name-display">Welcome!</span>
+            </div>
+        </header>
+
+        <!-- Floating Icons Grid -->
+        <div class="icons-grid">
+            <div class="icon-card" data-section="user-details" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">👤</span>
+                </div>
+                <p class="icon-label">User Details</p>
+            </div>
+            <div class="icon-card" data-section="academic-input" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">📄</span>
+                </div>
+                <p class="icon-label">Academic Input</p>
+            </div>
+            <div class="icon-card" data-section="eligibility" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">🎓</span>
+                </div>
+                <p class="icon-label">Eligibility</p>
+            </div>
+            <div class="icon-card" data-section="recommendations" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">🏆</span>
+                </div>
+                <p class="icon-label">Scholarships</p>
+            </div>
+            <div class="icon-card" data-section="internships" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">💼</span>
+                </div>
+                <p class="icon-label">Internships</p>
+            </div>
+            <div class="icon-card" data-section="performance" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">📊</span>
+                </div>
+                <p class="icon-label">Performance</p>
+            </div>
+            <div class="icon-card" data-section="download" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">📥</span>
+                </div>
+                <p class="icon-label">Download</p>
+            </div>
+            <div class="icon-card" data-section="logout" tabindex="0">
+                <div class="icon-wrapper">
+                    <span class="icon">🚪</span>
+                </div>
+                <p class="icon-label">Logout</p>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="content-wrapper">
+            <!-- User Details Section -->
+            <section id="user-details" class="content-section hidden">
+                <div class="section-header">
+                    <h2>User Details</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-field">
+                        <span class="field-label">Name:</span>
+                        <span class="field-value" id="profile-name">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Email:</span>
+                        <span class="field-value" id="profile-email">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Phone:</span>
+                        <span class="field-value" id="profile-phone">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Roll Number:</span>
+                        <span class="field-value" id="profile-roll">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">B.Tech Year:</span>
+                        <span class="field-value" id="profile-year">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Gender:</span>
+                        <span class="field-value" id="profile-gender">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Category:</span>
+                        <span class="field-value" id="profile-category">-</span>
+                    </div>
+                    <div class="profile-field">
+                        <span class="field-label">Quota Type:</span>
+                        <span class="field-value" id="profile-quota">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Academic Input Section -->
+            <section id="academic-input" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Academic Input</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <form id="academic-form" class="academic-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roll-number">Roll Number</label>
+                            <input type="text" id="roll-number" required placeholder="Enter roll number">
+                        </div>
+                        <div class="form-group">
+                            <label for="btech-year">B.Tech Year</label>
+                            <select id="btech-year" required>
+                                <option value="">Select Year</option>
+                                <option value="1st">1st Year</option>
+                                <option value="2nd">2nd Year</option>
+                                <option value="3rd">3rd Year</option>
+                                <option value="4th">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="present-cgpa">Present Year CGPA</label>
+                            <input type="number" id="present-cgpa" step="0.01" min="0" max="10" required placeholder="e.g., 8.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="previous-cgpa">Previous Year CGPA</label>
+                            <input type="number" id="previous-cgpa" step="0.01" min="0" max="10" required placeholder="e.g., 8.0">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="attendance">Attendance Percentage</label>
+                            <input type="number" id="attendance" step="0.01" min="0" max="100" required placeholder="e.g., 85">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" required>
+                                <option value="">Select Category</option>
+                                <option value="SC">SC</option>
+                                <option value="ST">ST</option>
+                                <option value="OBC">OBC</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quota-type">Quota Type</label>
+                            <select id="quota-type" required>
+                                <option value="">Select Quota</option>
+                                <option value="Convener Quota">Convener Quota</option>
+                                <option value="Management Quota">Management Quota</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="backlogs">Active Backlogs</label>
+                        <select id="backlogs" required>
+                            <option value="">Select</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Academic Data</button>
+                </form>
+            </section>
+
+            <!-- Scholarship Eligibility Section -->
+            <section id="eligibility" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Scholarship Eligibility</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <div id="eligibility-result" class="eligibility-card">
+                    <div class="eligibility-placeholder">
+                        <p>Please fill in your academic details first to check eligibility.</p>
+                        <button class="btn-secondary" onclick="showSection('academic-input')">Go to Academic Input</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scholarship Recommendations Section -->
+            <section id="recommendations" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Scholarship Recommendations</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <div class="recommendations-container">
+                    <div class="scholarship-group">
+                        <h3>Government Scholarships</h3>
+                        <div class="scholarship-list" id="government-scholarships">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                    <div class="scholarship-group">
+                        <h3>Private Scholarships</h3>
+                        <div class="scholarship-list" id="private-scholarships">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                    <div class="scholarship-group">
+                        <h3>Merit-Based Scholarships</h3>
+                        <div class="scholarship-list" id="merit-scholarships">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internships Section -->
+            <section id="internships" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Engineering Internship Opportunities</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <div class="internships-container">
+                    <div class="internship-group">
+                        <h3>Computer Science & IT Engineering</h3>
+                        <div class="internship-list">
+                            <a href="https://careers.microsoft.com/us/en" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Microsoft Engineering Internship</span>
+                                    <span class="internship-desc">Software engineering internships for CS/IT engineering students</span>
+                                </div>
+                            </a>
+                            <a href="https://careers.google.com/students/" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Google Engineering Internship</span>
+                                    <span class="internship-desc">Software engineering and technical internships for engineering students</span>
+                                </div>
+                            </a>
+                            <a href="https://www.tcs.com/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">TCS Engineering Internship</span>
+                                    <span class="internship-desc">IT and software engineering internships for B.Tech students</span>
+                                </div>
+                            </a>
+                            <a href="https://www.infosys.com/careers.html" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Infosys Engineering Internship</span>
+                                    <span class="internship-desc">Technology and engineering internships for B.Tech students</span>
+                                </div>
+                            </a>
+                            <a href="https://careers.wipro.com/" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Wipro Engineering Internship</span>
+                                    <span class="internship-desc">IT and engineering internships for B.Tech students</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="internship-group">
+                        <h3>Mechanical & Civil Engineering</h3>
+                        <div class="internship-list">
+                            <a href="https://www.larsentoubro.com/careers/" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">L&T Engineering Internship</span>
+                                    <span class="internship-desc">Mechanical and civil engineering internships at Larsen & Toubro</span>
+                                </div>
+                            </a>
+                            <a href="https://www.tatasteel.com/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Tata Steel Engineering Internship</span>
+                                    <span class="internship-desc">Mechanical and metallurgical engineering internships</span>
+                                </div>
+                            </a>
+                            <a href="https://www.mahindra.com/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Mahindra Engineering Internship</span>
+                                    <span class="internship-desc">Automotive and mechanical engineering internships</span>
+                                </div>
+                            </a>
+                            <a href="https://www.ril.com/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Reliance Industries Engineering Internship</span>
+                                    <span class="internship-desc">Chemical, mechanical, and civil engineering internships</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="internship-group">
+                        <h3>Electrical & Electronics Engineering</h3>
+                        <div class="internship-list">
+                            <a href="https://new.siemens.com/global/en/company/jobs.html" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Siemens Engineering Internship</span>
+                                    <span class="internship-desc">Electrical and electronics engineering internships</span>
+                                </div>
+                            </a>
+                            <a href="https://www.se.com/in/en/about-us/careers/" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Schneider Electric Engineering Internship</span>
+                                    <span class="internship-desc">Electrical engineering and automation internships</span>
+                                </div>
+                            </a>
+                            <a href="https://global.abb/group/en/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">ABB Engineering Internship</span>
+                                    <span class="internship-desc">Electrical and automation engineering internships</span>
+                                </div>
+                            </a>
+                            <a href="https://www.bhel.com/index.php/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">BHEL Engineering Internship</span>
+                                    <span class="internship-desc">Electrical, mechanical, and power engineering internships</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="internship-group">
+                        <h3>Government & Research Organizations</h3>
+                        <div class="internship-list">
+                            <a href="https://www.isro.gov.in/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">ISRO Engineering Internship</span>
+                                    <span class="internship-desc">Aerospace, mechanical, and electronics engineering internships</span>
+                                </div>
+                            </a>
+                            <a href="https://www.drdo.gov.in/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">DRDO Engineering Internship</span>
+                                    <span class="internship-desc">Defense engineering internships for B.Tech students</span>
+                                </div>
+                            </a>
+                            <a href="https://www.barc.gov.in/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">BARC Engineering Internship</span>
+                                    <span class="internship-desc">Nuclear engineering and research internships</span>
+                                </div>
+                            </a>
+                            <a href="https://www.iitb.ac.in/en/careers" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">IIT Research Internships</span>
+                                    <span class="internship-desc">Engineering research internships at IITs for B.Tech students</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="internship-group">
+                        <h3>Engineering Internship Platforms</h3>
+                        <div class="internship-list">
+                            <a href="https://internshala.com/internships" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Internshala - Engineering</span>
+                                    <span class="internship-desc">Engineering-specific internship opportunities for B.Tech students</span>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/jobs/internships/" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">LinkedIn Engineering Internships</span>
+                                    <span class="internship-desc">Engineering internship opportunities for B.Tech students</span>
+                                </div>
+                            </a>
+                            <a href="https://www.naukri.com/internships" target="_blank" class="internship-link">
+                                <span class="link-icon">🔗</span>
+                                <div class="internship-info">
+                                    <span class="internship-name">Naukri Engineering Internships</span>
+                                    <span class="internship-desc">Engineering internship listings for B.Tech students</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Analysis Section -->
+            <section id="performance" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Performance Analysis</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <div id="performance-content" class="performance-container">
+                    <div class="performance-placeholder">
+                        <p>Please fill in your academic details first to view performance analysis.</p>
+                        <button class="btn-secondary" onclick="showSection('academic-input')">Go to Academic Input</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Report Section -->
+            <section id="download" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Download Report</h2>
+                    <button class="btn-close" onclick="closeSection()">×</button>
+                </div>
+                <div class="report-container">
+                    <div class="report-preview" id="report-preview">
+                        <div class="report-header">
+                            <h3>Student Academic & Scholarship Report</h3>
+                            <p class="report-date" id="report-date"></p>
+                        </div>
+                        <div class="report-content" id="report-content">
+                            <p>Please fill in your details to generate a report.</p>
+                        </div>
+                    </div>
+                    <button id="download-btn" class="btn-primary btn-download" onclick="downloadReport()">
+                        📥 Download Report
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

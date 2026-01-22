@@ -1,0 +1,66 @@
+================================================================================
+                    🚀 HOW TO RUN YOUR PROJECT AGAIN
+================================================================================
+
+FASTEST WAY (3 STEPS):
+-----------------------
+
+1. START BACKEND:
+   - Double-click: start_backend.bat
+   - OR open PowerShell and run: npm start
+   - Keep the window open!
+
+2. START FRONTEND:
+   - Double-click: start_frontend.bat
+   - OR open PowerShell and run: python -m http.server 8000
+   - Keep this window open too!
+
+3. OPEN BROWSER:
+   - Go to: http://localhost:8000/index.html
+   - That's it! Your project is running!
+
+================================================================================
+
+WHAT YOU NEED:
+--------------
+✅ Node.js installed (you have it!)
+✅ Python installed (usually pre-installed)
+✅ This project folder
+
+================================================================================
+
+TROUBLESHOOTING:
+-----------------
+
+Problem: "npm is not recognized"
+→ Restart PowerShell and try again
+
+Problem: Port already in use
+→ Close other applications or use different port
+
+Problem: Backend not connecting
+→ Check: http://localhost:3000 (should show JSON)
+
+================================================================================
+
+YOUR DATA:
+----------
+✅ All your registered users are saved in: data.json
+✅ Data persists after shutdown
+✅ Just start servers again to access it
+
+================================================================================
+
+VIEW YOUR DATA:
+---------------
+Double-click: view_data.bat
+OR run: node view_data.js
+
+================================================================================
+
+FOR DETAILED INSTRUCTIONS:
+---------------------------
+Read: QUICK_START.md or SETUP_GUIDE.md
+
+================================================================================
+

@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Praneeth",
+      "email": "praneeth123@gmail.com",
+      "phone": "7981222645",
+      "password_hash": "$2a$10$QobbCFgcKaWU34pQM2WDMubqPCXMS6ELPUEjIew5v3Ch9hdzHsjcu",
+      "created_at": "2026-01-22T09:07:02.525Z"
+    }
+  ],
+  "student_details": [
+    {
+      "user_id": 1,
+      "roll_number": "99220041376",
+      "btech_year": "1st",
+      "gender": "Male",
+      "category": "OBC",
+      "quota_type": "Convener Quota",
+      "present_cgpa": 8.54,
+      "previous_cgpa": 8,
+      "attendance": 85,
+      "active_backlogs": "No",
+      "updated_at": "2026-01-22T09:14:44.235Z"
+    }
+  ]
+}
